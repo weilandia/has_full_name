@@ -1,4 +1,6 @@
-# Name of Person
+# has_full_name
+
+Forked from frozen repo [basecamp/name_of_person](https://github.com/basecamp/name_of_person)
 
 Presenting names for English-language applications where a basic model of first and last name(s) combined is sufficient. This approach is not meant to cover all possible naming cases, deal with other languages, or even titulations. Just the basics.
 
@@ -7,7 +9,7 @@ Presenting names for English-language applications where a basic model of first 
 ```ruby
 # Relies on Person having a schema with first_name and last_name columns.
 class Person < ApplicationRecord
-  has_person_name
+  has_full_name
 end
 
 # Saves a new record using { first_name: "David", last_name: "Heinemeier Hansson" }
@@ -30,7 +32,7 @@ person.name.possessive(:abbreviated)  # => "D. Heinemeier Hansson's"
 
 
 # Use directly
-name = NameOfPerson::PersonName.full("David Heinemeier Hansson")
+name = HasFullName::Name.full("David Heinemeier Hansson")
 name.first # => "David"
 ```
 
@@ -38,7 +40,7 @@ name.first # => "David"
 
 ```ruby
 # Gemfile
-gem 'name_of_person'
+gem 'has_full_name'
 ```
 
 If you are using this outside of Rails, make sure `ActiveRecord` and/or `ActiveModel` are manually required.
@@ -48,10 +50,6 @@ require 'active_record'
 # and/or
 require 'active_model'
 ```
-
-## No further development is going to happen
-
-This gem is essentially frozen, as the developers have decided to only deal with full names going forward in their applications. Feel free to fork this work, brand it under a new name, and continue development.
 
 ## License
 
